@@ -98,9 +98,11 @@ public class TaskRepository {
     public List<Task> selectToHome() {
         List<Task> tasks = selectAll();
         List<Task> homeTasks = new ArrayList<>();
-
+        if (tasks == null) {
+            return null;
+        }
         for (Task task : tasks) {
-            if (!task.isArchived() && !task.isDeleted()) {
+            if (!task.isArchived() && !task.isDeleted() && !task.isCompleted()) {
                 homeTasks.add(task);
             }
         }
@@ -110,8 +112,11 @@ public class TaskRepository {
     public List<Task> selectCompleted() {
         List<Task> completedTasks = new ArrayList<>();
         List<Task> tasks = selectAll();
+        if (tasks == null) {
+            return null;
+        }
         for (Task task : tasks) {
-            if (task.isCompleted()) {
+            if (task.isCompleted() && !task.isArchived() && !task.isDeleted()) {
                 completedTasks.add(task);
             }
         }
@@ -121,8 +126,13 @@ public class TaskRepository {
     public List<Task> selectToArchived() {
         List<Task> archivedTasks = new ArrayList<>();
         List<Task> tasks = selectAll();
+
+        if (tasks == null) {
+            return null;
+        }
+
         for (Task task : tasks) {
-            if (task.isArchived()) {
+            if (task.isArchived() && !task.isDeleted()) {
                 archivedTasks.add(task);
             }
         }
@@ -132,6 +142,11 @@ public class TaskRepository {
     public List<Task> selectToTrash() {
         List<Task> trashTasks = new ArrayList<>();
         List<Task> tasks = selectAll();
+
+        if (tasks == null) {
+            return null;
+        }
+
         for (Task task : tasks) {
             if (task.isDeleted()) {
                 trashTasks.add(task);
