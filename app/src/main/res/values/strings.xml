@@ -11,4 +11,5 @@
     <string name="arrow_down_icon">arrow down icon</string>
     <string name="delete_icon">delete icon</string>
     <string name="edit_icon">edit icon</string>
+    <string name="restore_icon">restore icon</string>
 </resources>

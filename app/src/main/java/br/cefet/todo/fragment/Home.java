@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import java.util.List;
 
 import br.cefet.todo.R;
-import br.cefet.todo.adapter.TaskAdapter;
+import br.cefet.todo.adapter.HomeTaskAdapter;
 import br.cefet.todo.database.ToDoOpenHelper;
 import br.cefet.todo.domain.entity.Task;
 import br.cefet.todo.domain.repository.TaskRepository;
@@ -26,7 +26,7 @@ public class Home extends Fragment {
 
     RecyclerView recyclerView;
 
-    TaskAdapter taskAdapter;
+    HomeTaskAdapter homeTaskAdapter;
 
     ToDoOpenHelper toDoOpenHelper;
 
@@ -56,16 +56,16 @@ public class Home extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        List<Task> tasks =new TaskRepository(connection).selectAll();
+        List<Task> tasks =new TaskRepository(connection).selectToHome();
 
-        taskAdapter = new TaskAdapter(tasks);
-        recyclerView.setAdapter(taskAdapter);
+        homeTaskAdapter = new HomeTaskAdapter(tasks);
+        recyclerView.setAdapter(homeTaskAdapter);
     }
 
 
     public void update() {
         if (CreateTask.newTask) {
-            taskAdapter.updateList(CreateTask.theTask);
+            homeTaskAdapter.updateList(CreateTask.theTask);
             CreateTask.newTask = false;
         }
     }

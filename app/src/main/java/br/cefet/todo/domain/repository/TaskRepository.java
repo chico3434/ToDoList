@@ -95,4 +95,49 @@ public class TaskRepository {
         return tasks;
     }
 
+    public List<Task> selectToHome() {
+        List<Task> tasks = selectAll();
+        List<Task> homeTasks = new ArrayList<>();
+
+        for (Task task : tasks) {
+            if (!task.isArchived() && !task.isDeleted()) {
+                homeTasks.add(task);
+            }
+        }
+        return homeTasks;
+    }
+
+    public List<Task> selectCompleted() {
+        List<Task> completedTasks = new ArrayList<>();
+        List<Task> tasks = selectAll();
+        for (Task task : tasks) {
+            if (task.isCompleted()) {
+                completedTasks.add(task);
+            }
+        }
+        return completedTasks;
+    }
+
+    public List<Task> selectToArchived() {
+        List<Task> archivedTasks = new ArrayList<>();
+        List<Task> tasks = selectAll();
+        for (Task task : tasks) {
+            if (task.isArchived()) {
+                archivedTasks.add(task);
+            }
+        }
+        return archivedTasks;
+    }
+
+    public List<Task> selectToTrash() {
+        List<Task> trashTasks = new ArrayList<>();
+        List<Task> tasks = selectAll();
+        for (Task task : tasks) {
+            if (task.isDeleted()) {
+                trashTasks.add(task);
+            }
+        }
+        return trashTasks;
+    }
+
 }

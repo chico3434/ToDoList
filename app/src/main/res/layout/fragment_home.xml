@@ -11,7 +11,7 @@
         android:id="@+id/recycler_view_tasks"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:listitem="@layout/task_list"
+        tools:listitem="@layout/home_task_list"
         ></android.support.v7.widget.RecyclerView>
 
 </FrameLayout>
