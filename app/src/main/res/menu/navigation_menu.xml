@@ -3,17 +3,33 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/menuCreate"
+        android:title="Create"
+        android:icon="@drawable/ic_add_box_black_24dp">
+
+    </item>
+
+    <item
+        android:id="@+id/menuCompleted"
+        android:title="Completed"
+        android:icon="@drawable/ic_check_box_black_24dp">
+
+    </item>
+
+    <item
         android:id="@+id/menuHome"
         android:title="Home"
         android:icon="@drawable/ic_home_black_24dp">
 
     </item>
+
     <item
-        android:id="@+id/menuCreate"
-        android:title="Create"
-        android:icon="@drawable/ic_add_black_24dp">
+        android:id="@+id/menuArchived"
+        android:title="Archived"
+        android:icon="@drawable/ic_archive_black_24dp">
 
     </item>
+
     <item
         android:id="@+id/menuTrash"
         android:title="Trash"

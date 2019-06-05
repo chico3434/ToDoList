@@ -6,18 +6,22 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
 import br.cefet.todo.R;
+import br.cefet.todo.fragment.Archived;
+import br.cefet.todo.fragment.Completed;
 import br.cefet.todo.fragment.CreateTask;
 import br.cefet.todo.fragment.Home;
 import br.cefet.todo.fragment.Trash;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener {
 
-    BottomNavigationView bottomNavigationView;
+    public static BottomNavigationView bottomNavigationView;
 
     // Fragments
 
     Home home = new Home();
     CreateTask createTask = new CreateTask();
+    Completed completed = new Completed();
+    Archived archived = new Archived();
     Trash trash = new Trash();
 
     @Override
@@ -43,6 +47,15 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
             case R.id.menuCreate:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, createTask).commit();
                 return true;
+
+            case R.id.menuCompleted:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, completed).commit();
+                return true;
+
+            case R.id.menuArchived:
+                getSupportFragmentManager().beginTransaction().replace(R.id.container, archived).commit();
+                return true;
+
 
             case R.id.menuTrash:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, trash).commit();

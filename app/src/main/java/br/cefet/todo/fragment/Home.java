@@ -1,24 +1,22 @@
 package br.cefet.todo.fragment;
 
-
-import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.annotation.NonNull;
-import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+
+import java.util.List;
 
 import br.cefet.todo.R;
 import br.cefet.todo.adapter.TaskAdapter;
 import br.cefet.todo.database.ToDoOpenHelper;
 import br.cefet.todo.domain.entity.Task;
 import br.cefet.todo.domain.repository.TaskRepository;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -58,7 +56,9 @@ public class Home extends Fragment {
         LinearLayoutManager layoutManager = new LinearLayoutManager(getContext());
         recyclerView.setLayoutManager(layoutManager);
 
-        taskAdapter = new TaskAdapter(new TaskRepository(connection).selectAll());
+        List<Task> tasks =new TaskRepository(connection).selectAll();
+
+        taskAdapter = new TaskAdapter(tasks);
         recyclerView.setAdapter(taskAdapter);
     }
 

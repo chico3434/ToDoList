@@ -3,8 +3,12 @@
 
     <string name="hintTitle">Title...</string>
     <string name="hintDescription">Description...</string>
-    <string name="buttonCreateToDo">Create To Do</string>
+    <string name="buttonCreateToDo">Create Task</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="done_icon">done icon</string>
+    <string name="arrow_down_icon">arrow down icon</string>
+    <string name="delete_icon">delete icon</string>
+    <string name="edit_icon">edit icon</string>
 </resources>
