@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menuHome"
+        android:title="Home"
+        android:icon="@drawable/ic_home_black_24dp">
+
+    </item>
+    <item
+        android:id="@+id/menuCreate"
+        android:title="Create"
+        android:icon="@drawable/ic_add_black_24dp">
+
+    </item>
+    <item
+        android:id="@+id/menuTrash"
+        android:title="Trash"
+        android:icon="@drawable/ic_delete_black_24dp">
+
+    </item>
+
+</menu>
