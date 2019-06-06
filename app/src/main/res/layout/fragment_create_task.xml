@@ -15,17 +15,17 @@
             android:id="@+id/editTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="@string/hintTitle"
+            android:hint="@string/hint_title"
             android:inputType="text"
-            android:autofillHints="@string/hintTitle"
+            android:autofillHints="@string/hint_title"
             />
 
         <EditText
             android:id="@+id/editDescription"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:autofillHints="@string/hintDescription"
-            android:hint="@string/hintDescription"
+            android:autofillHints="@string/hint_description"
+            android:hint="@string/hint_description"
             android:inputType="textMultiLine"
             android:lines="10"
             android:maxLines="20"
@@ -36,7 +36,7 @@
             android:id="@+id/buttonCreateTask"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/buttonCreateToDo" />
+            android:text="@string/button_create_task" />
 
     </LinearLayout>
 

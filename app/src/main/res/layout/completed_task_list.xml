@@ -37,7 +37,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="15dp"
                 android:src="@drawable/ic_archive_black_24dp"
-                android:contentDescription="@string/arrow_down_icon"/>
+                android:contentDescription="@string/archive_icon"/>
 
             <ImageView
                 android:id="@+id/completed_button_delete"

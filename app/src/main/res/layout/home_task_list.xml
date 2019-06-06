@@ -3,32 +3,45 @@
 <android.support.v7.widget.CardView
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    xmlns:android="http://schemas.android.com/apk/res/android">
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_margin="5dp"
 
-        <LinearLayout
+    app:cardBackgroundColor="#DDDDDD"
+    app:cardCornerRadius="10dp"
+    app:cardElevation="8dp"
+    app:cardMaxElevation="16dp"
+    app:contentPadding="10dp">
+
+        <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:orientation="horizontal"
-            android:gravity="left|center_vertical">
+            android:gravity="center_vertical">
 
             <TextView
-                android:id="@+id/item_title"
+                android:id="@+id/item_task_title"
                 android:layout_width="wrap_content"
+                android:maxWidth="200dp"
                 android:layout_height="wrap_content"
-                android:text="@string/app_name"
-                android:layout_marginEnd="15dp"/>
+                android:text="@string/sample_task_title"
+                android:textSize="18sp"
+                android:layout_marginStart="15dp"
+                />
 
             <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                android:gravity="end|center_vertical">
+                android:gravity="center"
+                android:layout_alignParentEnd="true"
+                >
 
                 <ImageView
                     android:id="@+id/item_button_complete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
                     android:src="@drawable/ic_check_box_outline_blank_black_24dp"
                     android:contentDescription="@string/done_icon"/>
 
@@ -36,7 +49,7 @@
                     android:id="@+id/item_button_update"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
                     android:src="@drawable/ic_mode_edit_black_24dp"
                     android:contentDescription="@string/edit_icon"/>
 
@@ -44,19 +57,18 @@
                     android:id="@+id/item_button_archive"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
                     android:src="@drawable/ic_archive_black_24dp"
-                    android:contentDescription="@string/arrow_down_icon"/>
+                    android:contentDescription="@string/archive_icon"/>
 
                 <ImageView
                     android:id="@+id/item_button_delete"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginEnd="15dp"
+                    android:layout_marginStart="15dp"
                     android:src="@drawable/ic_delete_black_24dp"
                     android:contentDescription="@string/delete_icon"/>
             </LinearLayout>
-
-        </LinearLayout>
+        </RelativeLayout>
 
     </android.support.v7.widget.CardView>

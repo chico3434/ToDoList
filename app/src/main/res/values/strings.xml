@@ -1,15 +1,26 @@
 <resources>
     <string name="app_name">To Do List</string>
 
-    <string name="hintTitle">Title...</string>
-    <string name="hintDescription">Description...</string>
-    <string name="buttonCreateToDo">Create Task</string>
+    <string name="hint_title">Title...</string>
+    <string name="hint_description">Description...</string>
+    <string name="button_create_task">Create Task</string>
 
-    <!-- TODO: Remove or change this placeholder text -->
+    <!--Gerado automáticamente-->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="done_icon">done icon</string>
-    <string name="arrow_down_icon">arrow down icon</string>
-    <string name="delete_icon">delete icon</string>
-    <string name="edit_icon">edit icon</string>
-    <string name="restore_icon">restore icon</string>
+
+    <!--Descrições e amostras-->
+    <string name="done_icon">Done Icon</string>
+    <string name="archive_icon">Archive Icon</string>
+    <string name="delete_icon">Delete Icon</string>
+    <string name="edit_icon">Edit Icon</string>
+    <string name="restore_icon">Restore Icon</string>
+
+    <string name="sample_task_title">Sample Task Title</string>
+
+    <!--BottomNavigationView titles-->
+    <string name="create">Create</string>
+    <string name="completed">Completed</string>
+    <string name="home">Home</string>
+    <string name="archived">Archived</string>
+    <string name="trash">Trash</string>
 </resources>

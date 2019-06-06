@@ -4,35 +4,35 @@
 
     <item
         android:id="@+id/menuCreate"
-        android:title="Create"
+        android:title="@string/create"
         android:icon="@drawable/ic_add_box_black_24dp">
 
     </item>
 
     <item
         android:id="@+id/menuCompleted"
-        android:title="Completed"
+        android:title="@string/completed"
         android:icon="@drawable/ic_check_box_black_24dp">
 
     </item>
 
     <item
         android:id="@+id/menuHome"
-        android:title="Home"
+        android:title="@string/home"
         android:icon="@drawable/ic_home_black_24dp">
 
     </item>
 
     <item
         android:id="@+id/menuArchived"
-        android:title="Archived"
+        android:title="@string/archived"
         android:icon="@drawable/ic_archive_black_24dp">
 
     </item>
 
     <item
         android:id="@+id/menuTrash"
-        android:title="Trash"
+        android:title="@string/trash"
         android:icon="@drawable/ic_delete_black_24dp">
 
     </item>

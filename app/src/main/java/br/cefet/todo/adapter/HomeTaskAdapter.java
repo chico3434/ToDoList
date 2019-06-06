@@ -140,7 +140,7 @@ public class HomeTaskAdapter extends RecyclerView.Adapter<HomeTaskAdapter.HomeTa
 
         public HomeTaskHolder(View itemView) {
             super(itemView);
-            itemTitle = itemView.findViewById(R.id.item_title);
+            itemTitle = itemView.findViewById(R.id.item_task_title);
 
             buttonComplete = itemView.findViewById(R.id.item_button_complete);
             buttonUpdate = itemView.findViewById(R.id.item_button_update);
