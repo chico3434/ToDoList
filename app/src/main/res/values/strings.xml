@@ -16,6 +16,7 @@
     <string name="restore_icon">Restore Icon</string>
 
     <string name="sample_task_title">Sample Task Title</string>
+    <string name="sample_task_big_title">Sample Task Big Title with a much number of letters and words</string>
 
     <!--BottomNavigationView titles-->
     <string name="create">Create</string>
