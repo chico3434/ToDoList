@@ -39,25 +39,25 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
     public boolean onNavigationItemSelected(MenuItem menuItem) {
 
         switch (menuItem.getItemId()) {
-            case R.id.menuHome:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, home).commit();
-                return true;
-
             case R.id.menuCreate:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, createTask).commit();
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right).replace(R.id.container, createTask).commit();
                 return true;
 
             case R.id.menuCompleted:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, completed).commit();
+            getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right).replace(R.id.container, completed).commit();
+            return true;
+
+            case R.id.menuHome:
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right).replace(R.id.container, home).commit();
                 return true;
 
             case R.id.menuArchived:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, archived).commit();
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right).replace(R.id.container, archived).commit();
                 return true;
 
 
             case R.id.menuTrash:
-                getSupportFragmentManager().beginTransaction().replace(R.id.container, trash).commit();
+                getSupportFragmentManager().beginTransaction().setCustomAnimations(R.anim.slide_in_right, R.anim.slide_out_left, R.anim.slide_in_left, R.anim.slide_out_right).replace(R.id.container, trash).commit();
                 return true;
         }
 
