@@ -14,6 +14,7 @@ import android.widget.EditText;
 import br.cefet.todo.R;
 import br.cefet.todo.ToDoApplication;
 import br.cefet.todo.activity.MainActivity;
+import br.cefet.todo.adapter.HomeTaskAdapter;
 import br.cefet.todo.database.ToDoOpenHelper;
 import br.cefet.todo.domain.entity.Task;
 import br.cefet.todo.domain.repository.TaskRepository;
@@ -29,13 +30,11 @@ public class CreateTask extends Fragment {
 
     private Button buttonCreateTask;
 
+    private Button buttonCancel;
+
     ToDoOpenHelper toDoOpenHelper;
 
     SQLiteDatabase connection;
-
-    public static boolean newTask = false;
-
-    public static Task theTask;
 
     public CreateTask() {
         // Required empty public constructor
@@ -62,28 +61,73 @@ public class CreateTask extends Fragment {
 
         buttonCreateTask.setOnClickListener(onClickListener);
 
+        buttonCancel = view.findViewById(R.id.button_cancel);
+        buttonCancel.setVisibility(View.INVISIBLE);
+        buttonCancel.setOnClickListener(onClickCancel);
+
         toDoOpenHelper = new ToDoOpenHelper(view.getContext());
         connection = toDoOpenHelper.getWritableDatabase();
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        if (HomeTaskAdapter.taskToUpdate != null) {
+            Log.d("TESTE", HomeTaskAdapter.taskToUpdate.getTitle());
+            Log.d("TESTE", HomeTaskAdapter.taskToUpdate.getDescription());
+            editTitle.setText(HomeTaskAdapter.taskToUpdate.getTitle());
+            editDescription.setText(HomeTaskAdapter.taskToUpdate.getDescription());
+            buttonCreateTask.setText(getString(R.string.update_task));
+            buttonCancel.setVisibility(View.VISIBLE);
+
+        }
+    }
+
+    View.OnClickListener onClickCancel = new View.OnClickListener() {
+        @Override
+        public void onClick(View v) {
+            editTitle.setText("");
+            editDescription.setText("");
+            buttonCreateTask.setText(getString(R.string.button_create_task));
+            buttonCancel.setVisibility(View.INVISIBLE);
+
+            HomeTaskAdapter.taskToUpdate = null;
+
+            MainActivity.bottomNavigationView.setSelectedItemId(R.id.menuHome);
+        }
+    };
 
     View.OnClickListener onClickListener = new View.OnClickListener() {
 
         @Override
         public void onClick(View v) {
-            Log.d(ToDoApplication.TAG, "On Click Listener");
+            Log.d(ToDoApplication.TAG, "Button Create clicked");
 
-            String title = editTitle.getText().toString();
+            if (HomeTaskAdapter.taskToUpdate == null) {
+                String title = editTitle.getText().toString();
 
-            String description = editDescription.getText().toString();
+                String description = editDescription.getText().toString();
 
-            Task task = new Task(title, description);
+                Task task = new Task(title, description);
 
-            new TaskRepository(connection).insert(task);
+                new TaskRepository(connection).insert(task);
+            } else {
+
+                Task task = HomeTaskAdapter.taskToUpdate;
+                HomeTaskAdapter.taskToUpdate = null;
+
+                task.setTitle(editTitle.getText().toString());
+                task.setDescription(editDescription.getText().toString());
+
+                new TaskRepository(connection).update(task);
+            }
+
+            editTitle.setText("");
+            editDescription.setText("");
+            buttonCreateTask.setText(getString(R.string.button_create_task));
+            buttonCancel.setVisibility(View.INVISIBLE);
 
             MainActivity.bottomNavigationView.setSelectedItemId(R.id.menuHome);
-
-            newTask = true;
-            theTask = task;
         }
     };
 

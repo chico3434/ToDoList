@@ -41,7 +41,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         switch (menuItem.getItemId()) {
             case R.id.menuHome:
                 getSupportFragmentManager().beginTransaction().replace(R.id.container, home).commit();
-                home.update();
                 return true;
 
             case R.id.menuCreate:

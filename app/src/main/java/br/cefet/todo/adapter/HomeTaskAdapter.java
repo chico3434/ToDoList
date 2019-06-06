@@ -13,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import br.cefet.todo.R;
+import br.cefet.todo.activity.MainActivity;
 import br.cefet.todo.database.ToDoOpenHelper;
 import br.cefet.todo.domain.entity.Task;
 import br.cefet.todo.domain.repository.TaskRepository;
@@ -25,10 +26,11 @@ public class HomeTaskAdapter extends RecyclerView.Adapter<HomeTaskAdapter.HomeTa
         data = tasks;
     }
 
-    ToDoOpenHelper toDoOpenHelper;
+    private ToDoOpenHelper toDoOpenHelper;
 
-    SQLiteDatabase connection;
+    private SQLiteDatabase connection;
 
+    public static Task taskToUpdate = null;
 
     @Override
     public HomeTaskHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
@@ -69,7 +71,8 @@ public class HomeTaskAdapter extends RecyclerView.Adapter<HomeTaskAdapter.HomeTa
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "Update clicked");
-                //updateItem("Att", "Foi att", homeTaskHolder.getAdapterPosition());
+                taskToUpdate = task;
+                MainActivity.bottomNavigationView.setSelectedItemId(R.id.menuCreate);
             }
         });
 
@@ -103,32 +106,12 @@ public class HomeTaskAdapter extends RecyclerView.Adapter<HomeTaskAdapter.HomeTa
         }
     }
 
-    private void insertItem(Task task) {
-        if (data == null) {
-            data = new ArrayList<>();
-        }
-        data.add(task);
-        notifyItemInserted(getItemCount());
-    }
-
     private void removeItem(int position) {
         new TaskRepository(connection).update(data.get(position));
         data.remove(position);
         notifyItemRemoved(position);
         notifyItemRangeChanged(position, data.size());
     }
-
-    public void updateList(Task task) {
-        insertItem(task);
-    }
-
-//    private void updateItem(String title, String description, int position) {
-//        Task task = data.get(position);
-//        task.setTitle(title);
-//        task.setDescription(description);
-//        notifyItemChanged(position);
-//    }
-
 
     public class HomeTaskHolder extends RecyclerView.ViewHolder {
 

@@ -24,4 +24,6 @@
     <string name="home">Home</string>
     <string name="archived">Archived</string>
     <string name="trash">Trash</string>
+    <string name="cancel">Cancel</string>
+    <string name="update_task">Update task</string>
 </resources>

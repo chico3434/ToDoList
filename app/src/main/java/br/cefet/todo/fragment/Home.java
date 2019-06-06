@@ -62,11 +62,4 @@ public class Home extends Fragment {
         recyclerView.setAdapter(homeTaskAdapter);
     }
 
-
-    public void update() {
-        if (CreateTask.newTask) {
-            homeTaskAdapter.updateList(CreateTask.theTask);
-            CreateTask.newTask = false;
-        }
-    }
 }
